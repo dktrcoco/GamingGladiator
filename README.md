@@ -42,7 +42,7 @@ Chris Kabana (chris.kabana@gmail.com, dktrcoco)
 
 Christian Vadevoulis (christian.vadevoulis@gmail.com, CVade)
 
-Jeffrey Kornfeld (jakornfeld@yahoo.com, )
+Jeffrey Kornfeld (jakornfeld@yahoo.com, jeffreykornfeld)
 
 Shonta Wilson (swilson9894@gmail.com, )
 
