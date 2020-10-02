@@ -40,11 +40,11 @@ Table of Contents
 
 Chris Kabana (chris.kabana@gmail.com, dktrcoco)
 
-Christian Vadevoulis (christian.vadevoulis@gmail.com, CVade)
+Christian Vadevoulis (christian.vadevoulis@gmail.com, C.Vade)
 
 Jeffrey Kornfeld (jakornfeld@yahoo.com, jeffreykornfeld)
 
-Shonta Wilson (swilson9894@gmail.com, )
+Shonta Wilson (swilson9894@gmail.com, swilson9894)
 
 ## Questions
 
