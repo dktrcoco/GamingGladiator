@@ -9,6 +9,7 @@ Link of Deployed App:
 
 Table of Contents
 * [User Story](#story)
+* [Games](#games)
 * [Images](#images)
 * [Install](#install)
 * [Contribution](#contribution)
@@ -18,7 +19,15 @@ Table of Contents
 
 ## Story
 
+AS a gamer, I want have one location where I can select an FPS game
 
+SO I can quickly and easily compare my personal stats to friends and 
+
+other players on the leaderboard.
+
+## Games
+
+Overwatch, Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament, Apex Legends, Counter-Strike Go
 
 ## Images
 
