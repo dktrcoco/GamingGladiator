@@ -1,0 +1,31 @@
+{
+    "name": "project_two",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "test": "testing"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/dktrcoco/Project_Two.git"
+    },
+    "keywords": [
+      "Express",
+      "Handlebars",
+      "MySQL"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "mysql": "^2.18.1",
+      "express": "^4.16.3",
+      "express-handlebars": "^3.0.0",
+      "sequelize": "^6.3.5"
+    },
+    "bugs": {
+      "url": "https://github.com/dktrcoco/Project_Two/issues"
+    },
+    "homepage": "https://github.com/dktrcoco/Project_Two#readme"
+  }
+  
