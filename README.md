@@ -39,13 +39,13 @@ Table of Contents
 
 ## Authors
 
-Chris Kabana (chris.kabana@gmail.com, dktrcoco)
+Chris Kabana (chris.kabana@gmail.com, https://github.com/dktrcoco)
 
-Christian Vadevoulis (christian.vadevoulis@gmail.com, C.Vade)
+Christian Vadevoulis (christian.vadevoulis@gmail.com, https://github.com/C.Vade)
 
-Jeffrey Kornfeld (jakornfeld@yahoo.com, jeffreykornfeld)
+Jeffrey Kornfeld (jakornfeld@yahoo.com, https://github.com/jeffreykornfeld)
 
-Shonta Wilson (swilson9894@gmail.com, swilson9894)
+Shonta Wilson (swilson9894@gmail.com, https://github.com/swilson9894)
 
 ## Questions
 
