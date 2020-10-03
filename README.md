@@ -1,7 +1,6 @@
 # Project_Two
 
 Repo for Group 3 Project 2
-Testing
 
 
 Video of App in Action: 
@@ -41,7 +40,7 @@ Table of Contents
 
 Chris Kabana (chris.kabana@gmail.com, https://github.com/dktrcoco)
 
-Christian Vadevoulis (christian.vadevoulis@gmail.com, https://github.com/C.Vade)
+Christian Vadevoulis (christian.vadevoulis@gmail.com, https://github.com/CVade)
 
 Jeffrey Kornfeld (jakornfeld@yahoo.com, https://github.com/jeffreykornfeld)
 
