@@ -1,31 +1,35 @@
 {
-  "name": "project_two",
+  "name": "1-Passport-Example",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "testing"
+    "test": "npm run lint",
+    "start": "node server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "watch": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dktrcoco/Project_Two.git"
-  },
-  "keywords": [
-    "Express",
-    "Handlebars",
-    "MySQL"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^7.10.0",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "mysql": "^2.18.1",
-    "sequelize": "^6.3.5"
+    "bcryptjs": "2.4.3",
+    "express": "^4.17.0",
+    "express-session": "^1.16.1",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.8.6"
   },
-  "bugs": {
-    "url": "https://github.com/dktrcoco/Project_Two/issues"
-  },
-  "homepage": "https://github.com/dktrcoco/Project_Two#readme"
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.7"
+  }
 }

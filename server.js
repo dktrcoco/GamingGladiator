@@ -1,32 +1,36 @@
-//DEPENDENCIES
-//============================================================
-var express = require("express");
+// Requiring necessary npm packages
+const express = require("express");
+const session = require("express-session");
+// Requiring passport as we've configured it
+const passport = require("./config/passport");
 
-//this port needs to be different from the sql port
-var PORT = process.env.PORT || 8000;
+// Setting up port and requiring models for syncing
+const PORT = process.env.PORT || 8080;
+const db = require("./models");
 
-var app = express();
-
-//static content from the 'public' folder
-app.use(express.static("public"));
-
-//parse application body as json
+// Creating express app and configuring middleware needed for authentication
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-//set up Handlebars
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
-//import routes and give the server access to them
-//yet to be named file from the 'controllers' folder
-var routes = require("./controllers/CONTROLLER_NAME.js");
-
-app.use(routes);
-
-//start the server so that it can begin listening to client requests
-app.listen(PORT, function() {
-    //log server side when the server has started
-    console.log("Server listening on: " + PORT);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
