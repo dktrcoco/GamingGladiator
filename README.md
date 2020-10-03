@@ -7,6 +7,7 @@ Video of App in Action:
 
 Link of Deployed App: https://git.heroku.com/project-two-2.git
 
+
 Table of Contents
 * [User Story](#story)
 * [Games](#games)
