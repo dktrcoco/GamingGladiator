@@ -5,7 +5,7 @@ Repo for Group 3 Project 2
 
 Video of App in Action: 
 
-Link of Deployed App:
+Link of Deployed App: https://git.heroku.com/project-two-2.git
 
 Table of Contents
 * [User Story](#story)
