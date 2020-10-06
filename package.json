@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "project_two",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,12 +10,21 @@
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
+  "respository": {
+    "type": "git",
+    "url": "https://github.com/dktrcoco/Project_Two"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dktrcoco/Project_Two/issues"
+  },
+  "homepage": "https://github.com/dktrcoco/Project_Two#readme",
   "dependencies": {
     "bcryptjs": "2.4.3",
     "express": "^4.17.0",
+    "express-handlebars": "^5.1.0",
     "express-session": "^1.16.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
