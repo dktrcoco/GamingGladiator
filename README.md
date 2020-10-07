@@ -20,7 +20,7 @@ Table of Contents
 
 ## Story
 
-AS a gamer who plays Overwatch, I want have one location where I can both view my personal stats and friends stats
+AS a gamer who plays Overwatch, I want have one location for data display and in-game challenges
 
 SO I can quickly and easily compare my personal stats to friends and engage in challenges with other friends who play the game
 
