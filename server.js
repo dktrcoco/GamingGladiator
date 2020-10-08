@@ -1,7 +1,8 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
-const mysql = require("mysql");
+const exphbs = require("express-handlebars");
+// const mysql = require("mysql");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -11,23 +12,22 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 //MySQL DB Connection Information for connecting to local DB
-var connection = mysql.createConnection({ 
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "testing_db"
-});
+// const connection = mysql.createConnection({
+//   host: "localhost",
+//   port: 3306,
+//   user: "root",
+//   password: "24DimethylPyrrole!",
+//   database: "testing_db"
+// });
 
 //Initiate MySQL Connection
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
-
+// connection.connect(function (err) {
+//   if (err) {
+//     console.error("error connecting: " + err.stack);
+//     return;
+//   }
+//   console.log("connected as id " + connection.threadId);
+// });
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
