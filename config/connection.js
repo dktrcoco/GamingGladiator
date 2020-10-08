@@ -1,6 +1,20 @@
-var mysql = require("mysql");
+// This file initiates the connection to mysql
+var mysql = require("mysql2");
+var Sequelize = require("sequelize");
 
 var connection;
+
+//constructor function
+var sequelize = new Sequelize("gamers_db", "root", "24DimethylPyrrole!", {
+    host: "localhost",
+    port: 3306,
+    dialect: "mysql",
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    }
+});
 
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -11,9 +25,9 @@ if (process.env.JAWSDB_URL) {
         port: 3306,
         user: "root",
         password: "24DimethylPyrrole!",
-        database: "testing_db"
+        database: "_db"
     });
-};
+}
 
 connection.connect(function (err) {
     if (err) {
@@ -24,4 +38,4 @@ connection.connect(function (err) {
 });
 
 //Export connection for ORM to use
-module.exports = connection;
+module.exports = sequelize;

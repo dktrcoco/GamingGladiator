@@ -2,47 +2,38 @@
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-// const mysql = require("mysql");
 
 // Requiring passport as we've configured it
-const passport = require("./config/passport");
+// const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
-//MySQL DB Connection Information for connecting to local DB
-// const connection = mysql.createConnection({
-//   host: "localhost",
-//   port: 3306,
-//   user: "root",
-//   password: "24DimethylPyrrole!",
-//   database: "testing_db"
-// });
-
-//Initiate MySQL Connection
-// connection.connect(function (err) {
-//   if (err) {
-//     console.error("error connecting: " + err.stack);
-//     return;
-//   }
-//   console.log("connected as id " + connection.threadId);
-// });
-
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//static directory to be served
 app.use(express.static("public"));
+
+//set up Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // We need to use sessions to keep track of our user's login status
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Requiring our routes
+//routes to display html
 require("./routes/html-routes.js")(app);
+
+//routes to effect changes
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success

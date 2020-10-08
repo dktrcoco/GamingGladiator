@@ -1,53 +1,39 @@
 // Requiring our models and passport as we've configured it
+//our db connection should be in here
+// we only want to connect to the db when we have info to add to it
+//or if we want to pull to display
+//db is here so not needed in server.js
 const db = require("../models");
-const passport = require("../config/passport");
 
-module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
+// bringing in the Gamer model
+// var Gamer = require("../models/gamer.js");
+
+//the front end will call the api
+//where ever you have a route it will be called from the front end
+
+module.exports = function (app) {
+  //get all gamers from database
+app.get("/api/all", function (req, res) {
+  db.Gamer.findAll({}).then(function (results) {
+    res.json(results);
+  });
+});
+
+//post for adding new gamertag and relevant info to the database
+app.post("/api/new", function (req, res) {
+  console.log("New Player: ");
+  console.log(req.body);
+
+  db.Gamer.create({
+    gamerName: req.body.gamerName,
+    gamerNumber: req.body.gamerNumber,
+    medalsBronze: req.body.medalsBronze,
+    medalsSilver: req.body.medalsSilver,
+    medalsGold: req.body.medalsGold,
+    medalsTotal: req.body.medalsTotal
+  }).then(function (results) {
+      // 'results' here would be the newly created gamer
+      res.end();
     });
-  });
-
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", (req, res) => {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(() => {
-        res.redirect(307, "/api/login");
-      })
-      .catch(err => {
-        res.status(401).json(err);
-      });
-  });
-
-  // Route for logging user out
-  app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
-
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
-  });
+});
 };
