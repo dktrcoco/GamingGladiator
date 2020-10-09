@@ -13,27 +13,27 @@ const db = require("../models");
 
 module.exports = function (app) {
   //get all gamers from database
-app.get("/api/all", function (req, res) {
-  db.Gamer.findAll({}).then(function (results) {
-    res.json(results);
+  app.get("/api/all", function (req, res) {
+    db.Gamer.findAll({}).then(function (results) {
+      res.json(results);
+    });
   });
-});
 
-//post for adding new gamertag and relevant info to the database
-app.post("/api/new", function (req, res) {
-  console.log("New Player: ");
-  console.log(req.body);
+  //post for adding new gamertag and relevant info to the database
+  app.post("/api/new", function (req, res) {
+    console.log("New Player: ");
+    console.log(req.body);
 
-  db.Gamer.create({
-    gamerName: req.body.gamerName,
-    gamerNumber: req.body.gamerNumber,
-    medalsBronze: req.body.medalsBronze,
-    medalsSilver: req.body.medalsSilver,
-    medalsGold: req.body.medalsGold,
-    medalsTotal: req.body.medalsTotal
-  }).then(function (results) {
+    db.Gamer.create({
+      gamerName: req.body.gamerName,
+      gamerNumber: req.body.gamerNumber,
+      medalsBronze: req.body.medalsBronze,
+      medalsSilver: req.body.medalsSilver,
+      medalsGold: req.body.medalsGold,
+      medalsTotal: req.body.medalsTotal
+    }).then(function (results) {
       // 'results' here would be the newly created gamer
       res.end();
     });
-});
+  });
 };

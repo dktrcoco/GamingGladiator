@@ -12,3 +12,37 @@ $.get("/api/all", function (data) {
     }
 });
 
+// ajax call goes here
+// needs function get request against api with the two params for username
+//use split and join to cut out 
+
+//will need params of player name/number eventually
+function gamerInfo() {
+    //this is actually the ajax call using jquery syntax
+
+    $.get("https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile", function (data) {
+        $(".result").html(data);
+        alert("Load was performed.");
+    });
+
+    //this needs to correspond
+    // $.post("/api/login", {
+    //     email: email,
+    //     password: password
+    // })
+    //     .then(() => {
+    //         window.location.replace("/members");
+    //         // If there's an error, log the error
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
+}
+
+gamerInfo();
+
+<button onclick="gamerInfo()">Click me</button>
+
+//don't overburden one table
+//get this working on heroku
+//then work on routes

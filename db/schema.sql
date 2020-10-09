@@ -1,3 +1,4 @@
+-- this is for local use only
 DROP DATABASE IF EXISTS gamers_db;
 CREATE DATABASE gamers_db;
 
