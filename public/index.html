@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Gladiators</title>
+    <title>OverSTATS Olympics</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,41 +16,51 @@
         <h1>Welcome, Gamers. Prepare for Battle.</h1>
     </header>
     
-    <div class="container">
+    <div class="container1">
         
         <div class="row">
-            <div id="enter-names">
-                <h2>Enter Competitors Here</h2>
+            <div id="enter-names" class="card">
+                <form class="username-gamertag">
+                    <div class="form-group">
+                      <label for="exampleUsername1"><h3 class="card-header"> Enter Competitors Here</h3></label>
+                      <div class="card-body">
+                        <input type="username" class="form-control" id="username-input" placeholder="Enter Username/Gamertag">
+                      </div>
+                    </div>
             </div>
 
         </div>
 
+        <br>
+
         <div class="row">
             <div id="choose-battle-mode" class="card">
-                <h2 class="card-header">Choose Battle Mode</h2>
+                <h3 class="card-header">Choose Battle Mode</h3>
                 <div class="card-body">
                     <div class="text-center">
-                        <button class="btn btn-outline-dark btn-lg high-score-button">
+                        <button class="btn btn-outline-light btn-lg high-score-button">
                             High Score Hero</button>
-                        <button class="btn btn-outline-dark btn-lg kotk-button">
+                        <button class="btn btn-outline-light btn-lg kotk-button">
                             King of the Kills</button>
-                        <button class="btn btn-outline-dark btn-lg kd-button">
+                        <button class="btn btn-outline-light btn-lg kd-button">
                             K/D Clash</button>
                     </div>
                 </div>
             </div>     
         </div>
 
+        <br>
+
         <div class="row">
             <div id="choose-trial-length" class="card">
-                <h2 class="card-header">Choose Trial Length</h2>
+                <h3 class="card-header">Choose Trial Length</h3>
                 <div class="card-body">
                     <div class="text-center">
-                        <button class="btn btn-outline-dark btn-lg one-round-button">
+                        <button class="btn btn-outline-light btn-lg one-round-button">
                             1 match</button>
-                          <button class="btn btn-outline-dark btn-lg three-round-button">
+                          <button class="btn btn-outline-light btn-lg three-round-button">
                             3 matches</button>
-                          <button class="btn btn-outline-dark btn-lg five-round-button">
+                          <button class="btn btn-outline-light btn-lg five-round-button">
                             5 matches</button>
                     </div>
                 </div>
@@ -59,6 +69,7 @@
     </div>
 
     <!-- importing gamers.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/gamers.js"></script>
 
 </body>
