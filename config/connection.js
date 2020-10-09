@@ -24,7 +24,7 @@ if (process.env.JAWSDB_URL) {
         //this needs to match from MySQL
         port: 3306,
         user: "root",
-        password: "24DimethylPyrrole!",
+        password: "Samson69.",
         database: "_db"
     });
 }
