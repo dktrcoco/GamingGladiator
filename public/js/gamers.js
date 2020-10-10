@@ -77,11 +77,37 @@ function pullData() {
             console.log(res);
         });
     })
+var barData = {
+        labels : ["Total Medals","Gold Medals","Silver Medals","Bronze Medals"],
+        datasets : [
+            {
+                fillColor : "#fa9c1d",
+                strokeColor : "#48A4D1",
+                data : [medalsTotal, medalsGold, medalsSilver, medalsBronze]
+            }
+        ]
+    }
+    // get bar chart canvas
+    var overData = document.getElementById("overData").getContext("2d");
+    // draw bar chart
+    new Chart(overData).Bar(barData);
+
+
+
+
 }
+
+function displayGraph() {
+    
+}
+
 
 $(".enter-button").on("click", function(event) {
     event.preventDefault();
     pullData();
+    console.log("-----")
+    console.log(medalsGold)
+    // displayGraph();
 });
 
 //don't overburden one table
