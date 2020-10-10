@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
 //20201008 when run in node, "Gamer" is pluralized, just a sequelize convention
 var Gamer = sequelize.define("Gamer", {
     gamerName: DataTypes.STRING,
-    gamerNumber: DataTypes.INTEGER,
+    gamerNumber: DataTypes.STRING,
     medalsBronze: DataTypes.INTEGER,
     medalsSilver: DataTypes.INTEGER,
     medalsGold: DataTypes.INTEGER,
