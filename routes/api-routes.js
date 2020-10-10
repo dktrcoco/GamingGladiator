@@ -19,6 +19,12 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/gold", function (req, res) {
+    db.Gamer.findOne({medalsGold}).then(function(results) {
+      res.json(results);
+    })
+  })
+
   //post for adding new gamertag and relevant info to the database
   app.post("/api/new", function (req, res) {
     console.log("New Player: ");
