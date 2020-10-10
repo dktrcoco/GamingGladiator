@@ -26,6 +26,7 @@ module.exports = function (app) {
   })
 
   //post for adding new gamertag and relevant info to the database
+  //
   app.post("/api/new", function (req, res) {
     console.log("New Player: ");
     console.log(req.body);

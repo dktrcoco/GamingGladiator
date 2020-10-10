@@ -42,6 +42,21 @@ function gamerInfo() {
 }
 
 // <<<<<<< Updated upstream
+
+//global so we can use it elsewhere
+var medalsGold;
+var medalsSilver;
+var medalsBronze;
+var medalsTotal;
+
+//object to hold all of the medal data
+var medals = {
+bronze: medalsBronze,
+silver: medalsSilver,
+gold: medalsGold,
+total: medalsTotal
+}
+
 function pullData() {
     var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
     $.ajax({
@@ -49,6 +64,17 @@ function pullData() {
         method: "GET"
     }).then(function(res) {
         console.log(res.level)
+        medalsGold = res.quickPlayStats.awards.medalsGold;
+        medalsSilver = res.quickPlayStats.awards.medalsSilver;
+        medalsBronze = res.quickPlayStats.awards.medalsBronze;
+        medalsTotal = res.quickPlayStats.awards.medals;
+        $.ajax({
+            url: "/api/new",
+            method: "POST"
+        }).then(function(res) {
+            //need to put attributes we're adding into the db
+            console.log("worked");
+        })
     })
 }
 
