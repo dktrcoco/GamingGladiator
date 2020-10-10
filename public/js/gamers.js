@@ -62,7 +62,7 @@ function pullData() {
         $.ajax({
             url: "/api/new",
             method: "POST", 
-            data: {gamerName: gamerName, gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
+            data: {gamerName: "Dktrcoco", gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
             // medalsBronze: medalsBronze,
             // medalsSilver: medalsSilver,
             // medalsGold: medalsGold,
