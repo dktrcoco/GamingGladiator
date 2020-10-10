@@ -1,12 +1,14 @@
 // when the page loads, grabs and displays all gamers
+
+
+
+
 $.get("/api/all", function (data) {
     if (data.length !== 0) {
         for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
             row.addClass("gamer");
-
             row.append("<p>" + data[i].gamer + " is ready to rock! </p>");
-
             $("gamer-area").append(row);
         }
     }
@@ -39,9 +41,20 @@ function gamerInfo() {
     //     });
 }
 
-gamerInfo();
+function pullData() {
+    var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
+    $.ajax({
+        url: overwatchURL,
+        method: "GET"
+    }).then(function(res) {
+        console.log(res.level)
+    })
+}
 
-<button onclick="gamerInfo()">Click me</button>
+$(".enter-button").on("click", function(event) {
+    event.preventDefault();
+    pullData();
+});
 
 //don't overburden one table
 //get this working on heroku
