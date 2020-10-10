@@ -35,7 +35,7 @@ var medalsGold;
 var medalsSilver;
 var medalsBronze;
 var medalsTotal;
-var gamerName = $("form.gamerName");
+var gamerName = $("#username-input");
 var gameNumber = $("form.gamerNumber");
 
 //object to hold all of the medal data
@@ -62,10 +62,11 @@ function pullData() {
         $.ajax({
             url: "/api/new",
             method: "POST", 
-            medalsBronze: medalsBronze,
-            medalsSilver: medalsSilver,
-            medalsGold: medalsGold,
-            medalsTotal: medalsTotal
+            data: {gamerName: gamerName, gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
+            // medalsBronze: medalsBronze,
+            // medalsSilver: medalsSilver,
+            // medalsGold: medalsGold,
+            // medalsTotal: medalsTotal
         }).then(function(results) {
             console.log(medalsGold);
             //need to put attributes we're adding into the db
