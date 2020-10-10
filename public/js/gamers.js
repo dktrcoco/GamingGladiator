@@ -41,6 +41,7 @@ function gamerInfo() {
     //     });
 }
 
+<<<<<<< Updated upstream
 function pullData() {
     var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
     $.ajax({
@@ -59,3 +60,10 @@ $(".enter-button").on("click", function(event) {
 //don't overburden one table
 //get this working on heroku
 //then work on routes
+
+//codepens, to use to test chartjs
+//another library to check out
+//svg, scalable vector graphic, using them, not building
+
+//mpm package of axios, good way to make http requests
+//quicker to learn than chartjs
