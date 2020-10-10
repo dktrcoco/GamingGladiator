@@ -41,7 +41,7 @@ function gamerInfo() {
     //     });
 }
 
-<<<<<<< Updated upstream
+// <<<<<<< Updated upstream
 function pullData() {
     var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
     $.ajax({
