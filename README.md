@@ -2,9 +2,9 @@
 
 Video of App in Action: 
 
-Link of Deployed App: gaminggladiator.herokuapp.com
+Link of Deployed App: https://gaminggladiator.herokuapp.com
 
-Link to Heroku Repo: dashboard.heroku.com/apps/gaminggladiator
+Link to Heroku Repo: https://dashboard.heroku.com/apps/gaminggladiator
 
 
 Table of Contents
