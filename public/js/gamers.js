@@ -26,19 +26,6 @@ function gamerInfo() {
         $(".result").html(data);
         alert("Load was performed.");
     });
-
-    //this needs to correspond
-    // $.post("/api/login", {
-    //     email: email,
-    //     password: password
-    // })
-    //     .then(() => {
-    //         window.location.replace("/members");
-    //         // If there's an error, log the error
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
 }
 
 // <<<<<<< Updated upstream
@@ -48,6 +35,8 @@ var medalsGold;
 var medalsSilver;
 var medalsBronze;
 var medalsTotal;
+var gamerName = $("form.gamerName");
+var gameNumber = $("form.gamerNumber");
 
 //object to hold all of the medal data
 var medals = {
@@ -68,13 +57,25 @@ function pullData() {
         medalsSilver = res.quickPlayStats.awards.medalsSilver;
         medalsBronze = res.quickPlayStats.awards.medalsBronze;
         medalsTotal = res.quickPlayStats.awards.medals;
+        console.log(medalsGold);
+        console.log(res);
         $.ajax({
             url: "/api/new",
-            method: "POST"
-        }).then(function(res) {
+            method: "POST", 
+            medalsBronze: medalsBronze,
+            medalsSilver: medalsSilver,
+            medalsGold: medalsGold,
+            medalsTotal: medalsTotal
+        }).then(function(results) {
+            console.log(medalsGold);
             //need to put attributes we're adding into the db
-            console.log("worked");
-        })
+            // medalsBronze: medalsBronze,
+            // medalsSilver: medalsSilver,
+            // medalsGold: medalsGold,
+            // medalsTotal: medalsTotal
+            console.log(results);
+            console.log(res);
+        });
     })
 }
 
