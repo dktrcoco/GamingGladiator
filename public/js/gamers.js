@@ -37,6 +37,14 @@ var medalsSilver;
 var medalsBronze;
 var medalsTotal;
 var gamerName = $("#username-input");
+// var gamerNameUrl = gamerName.val();
+
+// var a = gamerNameUrl.repace("#", "-");
+
+
+
+// var a = "Dktrcoco";
+// a = a.replace
 
 //object to hold all of the medal data
 var medals = {
@@ -47,7 +55,14 @@ total: medalsTotal
 }
 
 function pullMedalData() {
-    var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
+
+var gamerNameUrl = gamerName.val();
+console.log("new2: " + gamerNameUrl);
+var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
+
+
+    var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + gamerNameUrl2 + "/profile";
+    console.log(overwatchURL);
     $.ajax({
         url: overwatchURL,
         method: "GET"
@@ -102,6 +117,11 @@ function displayGraph() {
 
 $(".enter-button").on("click", function(event) {
     event.preventDefault();
+    console.log("new: " + gamerName.val());
+    var gamerNameUrl = gamerName.val();
+    console.log("new2: " + gamerNameUrl);
+    var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
+    console.log(gamerNameUrl2);
     pullMedalData();
     console.log("-----")
     console.log(medalsGold)
