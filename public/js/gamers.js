@@ -1,18 +1,19 @@
 // when the page loads, grabs and displays all gamers
+// var gamerName = document.getElementById("username-input");
 
 
 
 
-$.get("/api/all", function (data) {
-    if (data.length !== 0) {
-        for (var i = 0; i < data.length; i++) {
-            var row = $("<div>");
-            row.addClass("gamer");
-            row.append("<p>" + data[i].gamer + " is ready to rock! </p>");
-            $("gamer-area").append(row);
-        }
-    }
-});
+// $.get("/api/all", function (data) {
+//     if (data.length !== 0) {
+//         for (var i = 0; i < data.length; i++) {
+//             var row = $("<div>");
+//             row.addClass("gamer");
+//             row.append("<p>" + data[i].gamer + " is ready to rock! </p>");
+//             $("gamer-area").append(row);
+//         }
+//     }
+// });
 
 // ajax call goes here
 // needs function get request against api with the two params for username
@@ -36,7 +37,6 @@ var medalsSilver;
 var medalsBronze;
 var medalsTotal;
 var gamerName = $("#username-input");
-var gameNumber = $("form.gamerNumber");
 
 //object to hold all of the medal data
 var medals = {
@@ -46,7 +46,7 @@ gold: medalsGold,
 total: medalsTotal
 }
 
-function pullData() {
+function pullMedalData() {
     var overwatchURL = "https://ow-api.com/v1/stats/pc/us/Dktrcoco-2279/profile"
     $.ajax({
         url: overwatchURL,
@@ -59,23 +59,24 @@ function pullData() {
         medalsTotal = res.quickPlayStats.awards.medals;
         console.log(medalsGold);
         console.log(res);
+        console.log("gamerName: " + gamerName.val());
         $.ajax({
             url: "/api/new",
             method: "POST", 
-            data: {gamerName: "Dktrcoco", gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
+            data: {gamerName: gamerName.val(), gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
             // medalsBronze: medalsBronze,
             // medalsSilver: medalsSilver,
             // medalsGold: medalsGold,
             // medalsTotal: medalsTotal
         }).then(function(results) {
-            console.log(medalsGold);
+            console.log("gold: " + medalsGold);
             //need to put attributes we're adding into the db
             // medalsBronze: medalsBronze,
             // medalsSilver: medalsSilver,
             // medalsGold: medalsGold,
             // medalsTotal: medalsTotal
-            console.log(results);
-            console.log(res);
+            // console.log(results);
+            // console.log(res);
         });
     })
 var barData = {
@@ -92,10 +93,6 @@ var barData = {
     var overData = document.getElementById("overData").getContext("2d");
     // draw bar chart
     new Chart(overData).Bar(barData);
-
-
-
-
 }
 
 function displayGraph() {
@@ -105,7 +102,7 @@ function displayGraph() {
 
 $(".enter-button").on("click", function(event) {
     event.preventDefault();
-    pullData();
+    pullMedalData();
     console.log("-----")
     console.log(medalsGold)
     // displayGraph();
