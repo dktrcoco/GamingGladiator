@@ -19,8 +19,10 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/gold", function (req, res) {
-    db.Gamer.findOne({medalsGold}).then(function(results) {
+  //trying to set this to pull medals gold based on gamertag
+  //can pass this back to the client to compare gold medals so we can set previousgoldmedals to this
+  app.get("/api/gold/:gamer", function (req, res) {
+    db.Gamer.findOne({attributes: ['gamerName', 'medalsGold'], where: {gamerName: req.params.gamer}}).then(function(results) {
       res.json(results);
     })
   })
@@ -33,10 +35,10 @@ module.exports = function (app) {
 
     db.Gamer.create({
       gamerName: req.body.gamerName,
-      gamerNumber: req.body.gamerNumber,
       medalsBronze: req.body.medalsBronze,
       medalsSilver: req.body.medalsSilver,
       medalsGold: req.body.medalsGold,
+      medalsGoldPrevious: req.body.medalsGoldPrevious,
       medalsTotal: req.body.medalsTotal
     }).then(function (results) {
       // 'results' here would be the newly created gamer

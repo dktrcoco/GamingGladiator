@@ -48,59 +48,77 @@ var gamerName = $("#username-input");
 
 //object to hold all of the medal data
 var medals = {
-bronze: medalsBronze,
-silver: medalsSilver,
-gold: medalsGold,
-total: medalsTotal
+    bronze: medalsBronze,
+    silver: medalsSilver,
+    gold: medalsGold,
+    total: medalsTotal
 }
+//create timer, set interval to whatever you want (3 hours for example)
+function createInterval() {
+
+}
+
 
 function pullMedalData() {
 
-var gamerNameUrl = gamerName.val();
-console.log("new2: " + gamerNameUrl);
-var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
+    var gamerNameUrl = gamerName.val();
+    console.log("new2: " + gamerNameUrl);
+    var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
 
+    //need to make a call to the db to capture what the previous medals gold was for a particular user
+    //and need to do it before the ajax call
 
-    var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + gamerNameUrl2 + "/profile";
-    console.log(overwatchURL);
     $.ajax({
-        url: overwatchURL,
+        url: "/api/gold/" + gamerNameUrl2,
         method: "GET"
-    }).then(function(res) {
-        console.log(res.level)
-        medalsGold = res.quickPlayStats.awards.medalsGold;
-        medalsSilver = res.quickPlayStats.awards.medalsSilver;
-        medalsBronze = res.quickPlayStats.awards.medalsBronze;
-        medalsTotal = res.quickPlayStats.awards.medals;
-        console.log(medalsGold);
+    }).then(function (res) {
         console.log(res);
-        console.log("gamerName: " + gamerName.val());
+        let medalsGoldPrevious = 0;
+        if (res) {
+            medalsGoldPrevious = res.medalsGold || 0;
+        }
+
+        var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + gamerNameUrl2 + "/profile";
+        console.log(overwatchURL);
         $.ajax({
-            url: "/api/new",
-            method: "POST", 
-            data: {gamerName: gamerName.val(), gamerNumber: "2279", medalsBronze: medalsBronze, medalsSilver: medalsSilver, medalsGold: medalsGold, medalsTotal: medalsTotal}
-            // medalsBronze: medalsBronze,
-            // medalsSilver: medalsSilver,
-            // medalsGold: medalsGold,
-            // medalsTotal: medalsTotal
-        }).then(function(results) {
-            console.log("gold: " + medalsGold);
-            //need to put attributes we're adding into the db
-            // medalsBronze: medalsBronze,
-            // medalsSilver: medalsSilver,
-            // medalsGold: medalsGold,
-            // medalsTotal: medalsTotal
-            // console.log(results);
-            // console.log(res);
-        });
+            url: overwatchURL,
+            method: "GET"
+        }).then(function (res) {
+            console.log(res.level)
+            // const medalsGoldPrevious = medalsGold || 0; //sets medalsGoldPrevious to either medalsGold OR 0
+            const medalsGold = res.quickPlayStats.awards.medalsGold;
+            medalsSilver = res.quickPlayStats.awards.medalsSilver;
+            medalsBronze = res.quickPlayStats.awards.medalsBronze;
+            medalsTotal = res.quickPlayStats.awards.medals;
+            console.log(medalsGold);
+            console.log(res);
+            console.log("gamerName: " + gamerName.val());
+            $.ajax({
+                url: "/api/new",
+                method: "POST",
+                data: {
+                    gamerName: gamerNameUrl2,
+                    medalsBronze: medalsBronze,
+                    medalsSilver: medalsSilver,
+                    medalsGold: medalsGold,
+                    medalsGoldPrevious: medalsGoldPrevious,
+                    medalsTotal: medalsTotal
+                }
+            }).then(function (results) {
+                console.log("gold: " + medalsGold);
+            });
+        })
+
+
     })
-var barData = {
-        labels : ["Total Medals","Gold Medals","Silver Medals","Bronze Medals"],
-        datasets : [
+
+    var barData = {
+        labels: ["Total Medals", "Gold Medals", "Silver Medals", "Bronze Medals"],
+        datasets: [
             {
-                fillColor : "#fa9c1d",
-                strokeColor : "#48A4D1",
-                data : [medalsTotal, medalsGold, medalsSilver, medalsBronze]
+                fillColor: "#fa9c1d",
+                strokeColor: "#48A4D1",
+                data: [medalsTotal, medalsGold, medalsSilver, medalsBronze]
             }
         ]
     }
@@ -110,12 +128,13 @@ var barData = {
     new Chart(overData).Bar(barData);
 }
 
+
 function displayGraph() {
-    
+
 }
 
 
-$(".enter-button").on("click", function(event) {
+$(".enter-button").on("click", function (event) {
     event.preventDefault();
     console.log("new: " + gamerName.val());
     var gamerNameUrl = gamerName.val();
