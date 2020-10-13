@@ -108,55 +108,80 @@ function pullMedalData() {
                 console.log("gold: " + medalsGold);
             });
         })
-
-
     })
-
-
 }
 
+function apiCall() {
 
-function displayGraph() {
-    var barData = {
-        labels: ["Total Medals", "Gold Medals", "Silver Medals", "Bronze Medals"],
-        datasets: [
-            {
-                fillColor: "#FFFFFF",
-                strokeColor: "#000000",
-                data: [30, 10, 10, 10]
-            }, {
-                fillColor: "#48A4D1",
-                strokeColor: "#000000",
-                data: [50, 25, 10, 15]
-            },
+    var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + gamerNameUrl2 + "/profile";
+    console.log(overwatchURL);
+    $.ajax({
+        url: overwatchURL,
+        method: "GET"
+    }).then(function (res) {
+        console.log(res.level)
+    })
+};
 
-        ]
-    }
-    // get bar chart canvas
-    var overData = document.getElementById("overData").getContext("2d");
-    // draw bar chart
-    new Chart(overData).Bar(barData);
-}
+
+// function displayGraph() {
+//     var playerArray = ["player1", "player2", "player3", "player4"];
+//     var goldArray = [5, 4, 3, 2];
+
+//     var barData = {
+//         labels: playerArray,
+//         datasets: [
+//             {
+//                 fillColor: "#FFFFFF",
+//                 strokeColor: "#000000",
+//                 data: goldArray
+//             }
+//         ]
+//     }
+//     // get bar chart canvas
+//     var overData = document.getElementById("overData").getContext("2d");
+//     // draw bar chart
+//     new Chart(overData).Bar(barData);
+// }
 
 function dataForDisplay() {
     $.ajax({
         url: "/api/allgold",
         method: "GET"
     }).then(function (results) {
-        let arr = [];
+        let arrGold = [];
+        let arrPlayer = [];
         for (let i = 0; i < results.length; i++) {
             console.log(results[i].medalsGold);
             //pushes the medalsGold into the array
-            arr.push(results[i].medalsGold);
+            arrGold.push(results[i].medalsGold);
+            arrPlayer.push(results[i].gamerName);
         }
         //we could put the chartjs stuff here so it has access to the data
         //probably easier to do chart, possibly by calling the displayGraph function here
-        console.log(arr);
+
+        var barData = {
+            labels: arrPlayer,
+            datasets: [
+                {
+                    fillColor: "#FFFFFF",
+                    strokeColor: "#000000",
+                    data: arrGold
+                }
+            ]
+        }
+        // get bar chart canvas
+        var overData = document.getElementById("overData").getContext("2d");
+        // draw bar chart
+        new Chart(overData).Bar(barData);
+
+        console.log(arrGold);
+        console.log(arrPlayer);
     })
 }
 
 $(".results-button").on("click", function (event) {
-    displayGraph();
+    // displayGraph();
     dataForDisplay();
 });
 
