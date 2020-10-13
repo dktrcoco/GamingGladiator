@@ -31,9 +31,9 @@ h2 {
 }
 
 h3 {
-    padding: 1%;
-    margin: 0;
+    margin: 0 auto;
     font-size: 40px;
+    width: 600px;
     text-decoration: underline;
     color: #4A4C4E;
 }
@@ -91,4 +91,27 @@ h3 {
     margin: 0 auto;
     width: 80%;
     border-radius: 25px;
+}
+
+.buttonHolder {
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.jumbotron {
+    border: 3px solid #4A4C4E;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+}
+
+.display-4 {
+    font-size: 40px;
+    color: #4A4C4E;
+    border: 3px solid #4A4C4E;
+    border-radius: 25px;
+    background-color: #fa9c1d;
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
 }

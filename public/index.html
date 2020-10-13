@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OverSTATS Olympics</title>
+    <title>The OverSTATS Olympics</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <h1>Welcome, Gamers. Prepare for Battle.</h1>
+        <h1>Olympians! Prepare Yourselves!!</h1>
     </header>
     
     <div class="container1">
@@ -26,12 +26,12 @@
                       <label for="exampleUsername1"><h3 class="card-header"> Enter Competitors Here</h3></label>
                       <div class="card-body">
                         <input type="username" class="form-control" id="username-input" placeholder="Enter Username/Gamertag">
+                        <br>
+                        <button class="btn btn-outline-light btn-lg enter-button">Enter</button>
                       </div>
-                      <button class="btn btn-outline-dark btn-lg enter-button">
-                        Enter</button>
                     </div>
+                </form>
             </div>
-
         </div>
 
         <br>
@@ -59,20 +59,19 @@
                 <h3 class="card-header">Choose Trial Length</h3>
                 <div class="card-body">
                     <div class="text-center">
-                        <button class="btn btn-outline-light btn-lg one-round-button">
-                            1 match</button>
-                          <button class="btn btn-outline-light btn-lg three-round-button">
-                            3 matches</button>
-                          <button class="btn btn-outline-light btn-lg five-round-button">
-                            5 matches</button>
+                        <button class="btn btn-outline-light btn-lg one-round-button">1 match</button>
+                        <button class="btn btn-outline-light btn-lg three-round-button">3 matches</button>
+                        <button class="btn btn-outline-light btn-lg five-round-button">5 matches</button>
                     </div>
                 </div>
             </div>   
         </div>
     </div>
     
-    <a class="btn btn-outline-dark btn-lg" id="begin-button" href="./welcome.html" role="button">Back to Rules</a>
-    <a class="btn btn-outline-dark btn-lg" id="begin-button" href="./results.html" role="button">Results</a>
+    <div class="buttonHolder">
+        <a class="btn btn-outline-dark btn-lg" id="rules-button" href="./welcome.html" role="button">Back to Rules</a>
+        <a class="btn btn-outline-dark btn-lg" id="end-button" href="./results.html" role="button">Results</a>
+    </div>
 
     <!-- bar chart canvas element -->
     <canvas id="overData" width="600" height="400"></canvas>
