@@ -124,7 +124,7 @@ function displayGraph() {
                 fillColor: "#FFFFFF",
                 strokeColor: "#000000",
                 data: [30, 10, 10, 10]
-            },{
+            }, {
                 fillColor: "#48A4D1",
                 strokeColor: "#000000",
                 data: [50, 25, 10, 15]
@@ -142,12 +142,20 @@ function dataForDisplay() {
     $.ajax({
         url: "/api/allgold",
         method: "GET"
-    }).then(function(results) {
-        console.log(results[0].medalsGold);
+    }).then(function (results) {
+        let arr = [];
+        for (let i = 0; i < results.length; i++) {
+            console.log(results[i].medalsGold);
+            //pushes the medalsGold into the array
+            arr.push(results[i].medalsGold);
+        }
+        //we could put the chartjs stuff here so it has access to the data
+        //probably easier to do chart, possibly by calling the displayGraph function here
+        console.log(arr);
     })
 }
 
-$(".results-button").on("click", function(event) {
+$(".results-button").on("click", function (event) {
     displayGraph();
     dataForDisplay();
 });
