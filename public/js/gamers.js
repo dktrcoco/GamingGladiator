@@ -112,14 +112,24 @@ function pullMedalData() {
 
     })
 
+
+}
+
+
+function displayGraph() {
     var barData = {
         labels: ["Total Medals", "Gold Medals", "Silver Medals", "Bronze Medals"],
         datasets: [
             {
-                fillColor: "#fa9c1d",
-                strokeColor: "#48A4D1",
-                data: [medalsTotal, medalsGold, medalsSilver, medalsBronze]
-            }
+                fillColor: "#FFFFFF",
+                strokeColor: "#000000",
+                data: [30, 10, 10, 10]
+            },{
+                fillColor: "#48A4D1",
+                strokeColor: "#000000",
+                data: [50, 25, 10, 15]
+            },
+
         ]
     }
     // get bar chart canvas
@@ -128,10 +138,9 @@ function pullMedalData() {
     new Chart(overData).Bar(barData);
 }
 
-
-function displayGraph() {
-
-}
+$(".results-button").on("click", function(event) {
+    displayGraph();
+});
 
 
 $(".enter-button").on("click", function (event) {
