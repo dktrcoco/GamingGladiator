@@ -19,6 +19,12 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/allgold", function (req, res) {
+    db.Gamer.findAll({attributes: ['gamerName', 'medalsGold']}).then(function(results) {
+      res.json(results);
+    })
+  })
+
   //trying to set this to pull medals gold based on gamertag
   //can pass this back to the client to compare gold medals so we can set previousgoldmedals to this
   app.get("/api/gold/:gamer", function (req, res) {

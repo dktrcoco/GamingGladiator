@@ -138,8 +138,18 @@ function displayGraph() {
     new Chart(overData).Bar(barData);
 }
 
+function dataForDisplay() {
+    $.ajax({
+        url: "/api/allgold",
+        method: "GET"
+    }).then(function(results) {
+        console.log(results[0].medalsGold);
+    })
+}
+
 $(".results-button").on("click", function(event) {
     displayGraph();
+    dataForDisplay();
 });
 
 
