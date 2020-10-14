@@ -111,7 +111,88 @@ function pullMedalData() {
     })
 }
 
+// async function pullGamerData() {
+//     //need an api route for pulling one gamerName to populate the url
+//     let data = $.ajax({
+//         url: "/api/gamername",
+//         method: "GET"
+//     }).then(function (res) {
+//         // console.log(res);
+//         // console.log(res[0].gamerName);
+//         let gamerArr = [];
+//         for (let i = 0; i < res.length; i++) {
+//             gamerArr.push(res[i].gamerName);
+//         }
+//         console.log("arr: " + gamerArr);
+//         return gamerArr;
+//     })
+//     return data;
+// }
+
+// async function getGamerData() {
+//     let data = await fetch("/api/gamername").then(response => {
+//         console.log(response.json)
+//         return response.json()
+//     })
+//     console.log(data);
+// }
+
+async function getGamerData() {
+    let data = await fetch('/api/gamername').then(response => {
+        return response.json()
+    })
+    let gamers = data.map(gamer => {
+        return gamer.gamerName
+    })
+    console.log(gamers)
+    return gamers
+}
+
+async function test2() {
+    let test = await getGamerData();
+    console.log(test[0]);
+    let arrGoldNew = [];
+    for (let i = 0; i < test.length; i++) {
+        var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + test[i] + "/profile";
+        console.log(overwatchURL);
+        $.ajax({
+            url: overwatchURL,
+            method: "GET"
+        }).then(function (res) {
+            arrGoldNew.push(res.quickPlayStats.awards.medalsGold);
+        })
+    }
+    console.log(arrGoldNew);
+    // var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + test[0] + "/profile";
+    // console.log(overwatchURL);
+    // $.ajax({
+    //     url: overwatchURL,
+    //     method: "GET"
+    // }).then(function (res) {
+    //     console.log(res.quickPlayStats.awards.medalsGold)
+    //     let arrGoldNew = res.quickPlayStats.awards.medalsGold;
+    //     var barData = {
+    //         labels: test[0],
+    //         datasets: [
+    //             {
+    //                 fillColor: "#FFFFFF",
+    //                 strokeColor: "#000000",
+    //                 data: 50
+    //             }
+    //         ]
+    //     }
+    //     // get bar chart canvas
+    //     var overData = document.getElementById("overData").getContext("2d");
+    //     // draw bar chart
+    //     new Chart(overData).Bar(barData);
+    //     console.log(arrGoldNew);
+    // })
+};
+
 function apiCall() {
+
+    let arr = getGamerData();
+    console.log(arr);
 
     var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + gamerNameUrl2 + "/profile";
     console.log(overwatchURL);
@@ -119,10 +200,16 @@ function apiCall() {
         url: overwatchURL,
         method: "GET"
     }).then(function (res) {
-        console.log(res.level)
+        console.log(res.level);
+        var goldNew = res.quickPlayStats.awards.medalsGold;
+        console.log(goldNew);
     })
 };
 
+function testing() {
+    let data = pullGamerData();
+    console.log(data);
+}
 
 // function displayGraph() {
 //     var playerArray = ["player1", "player2", "player3", "player4"];
@@ -182,7 +269,10 @@ function dataForDisplay() {
 
 $(".results-button").on("click", function (event) {
     // displayGraph();
-    dataForDisplay();
+    // dataForDisplay();
+    // getGamerData();
+    // apiCall();
+    test2();
 });
 
 
