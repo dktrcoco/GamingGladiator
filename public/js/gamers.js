@@ -58,6 +58,18 @@ function createInterval() {
 
 }
 
+function getPlayerOneOldGold() {
+    var gamerNameUrl = gamerName.val();
+    console.log("new2: " + gamerNameUrl);
+    var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
+    
+    $.ajax({
+        url: "/api/gold/" + gamerNameUrl2,
+        method: "GET"
+    }).then(function (res) {
+
+    }) 
+}
 
 function pullMedalData() {
 
@@ -148,45 +160,32 @@ async function getGamerData() {
     return gamers
 }
 
-async function test2() {
+async function getNewGold() {
     let test = await getGamerData();
     console.log(test[0]);
     let arrGoldNew = [];
     for (let i = 0; i < test.length; i++) {
         var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + test[i] + "/profile";
-        console.log(overwatchURL);
-        $.ajax({
+        console.log("before ajax: " + overwatchURL);
+        //ajax here
+        var res = await $.ajax({
             url: overwatchURL,
             method: "GET"
-        }).then(function (res) {
-            arrGoldNew.push(res.quickPlayStats.awards.medalsGold);
         })
+        console.log("after ajax: " + overwatchURL);
+        arrGoldNew.push(res.quickPlayStats.awards.medalsGold);
+        console.log(arrGoldNew);
+        // $.ajax({
+        //     url: overwatchURL,
+        //     method: "GET"
+        // }).then(function (res) {
+        //     console.log("after ajax: " + overwatchURL);
+        //     arrGoldNew.push(res.quickPlayStats.awards.medalsGold);
+        //     console.log(arrGoldNew);
+        // })
     }
     console.log(arrGoldNew);
-    // var overwatchURL = "https://ow-api.com/v1/stats/pc/us/" + test[0] + "/profile";
-    // console.log(overwatchURL);
-    // $.ajax({
-    //     url: overwatchURL,
-    //     method: "GET"
-    // }).then(function (res) {
-    //     console.log(res.quickPlayStats.awards.medalsGold)
-    //     let arrGoldNew = res.quickPlayStats.awards.medalsGold;
-    //     var barData = {
-    //         labels: test[0],
-    //         datasets: [
-    //             {
-    //                 fillColor: "#FFFFFF",
-    //                 strokeColor: "#000000",
-    //                 data: 50
-    //             }
-    //         ]
-    //     }
-    //     // get bar chart canvas
-    //     var overData = document.getElementById("overData").getContext("2d");
-    //     // draw bar chart
-    //     new Chart(overData).Bar(barData);
-    //     console.log(arrGoldNew);
-    // })
+    return arrGoldNew
 };
 
 function apiCall() {
@@ -231,6 +230,66 @@ function testing() {
 //     new Chart(overData).Bar(barData);
 // }
 
+// async function combineGolds() {
+//     // let oldGold = await getOldGold();
+//     // let newGold = await getNewGold();
+//     // let newGold = [];
+//     console.log(newGold);
+
+// }
+
+async function subtractMedals() {
+    let oldMedalCount = await getOldGold();
+    console.log(oldMedalCount);
+    let newMedalCount = await getNewGold();
+    console.log(newMedalCount);
+    let medalCountDifference = [];
+
+    for(let i = 0; i < oldMedalCount.length; i++) {
+        medalCountDifference.push(newMedalCount[i] - oldMedalCount[i])
+    }
+    console.log("difference: " + medalCountDifference);
+}
+
+async function getOldGold() {
+    let data = await fetch('/api/oldgold').then(response => {
+        return response.json()
+    })
+    let oldGold = data.map(gamer => {
+        return gamer.medalsGold
+    })
+    console.log("old Gold: " + oldGold)
+    return oldGold
+}
+
+async function getOldGold2() {
+    $.ajax({
+        url: "/api/allgold",
+        method: "GET"
+    }).then(function (results) {
+        let arrGold = [];
+        let arrPlayer = [];
+        for (let i = 0; i < results.length; i++) {
+            console.log(results[i].medalsGold);
+            //pushes the medalsGold into the array
+            arrGold.push(results[i].medalsGold);
+            arrPlayer.push(results[i].gamerName);
+        }
+        console.log("old gold: " + arrGold);
+    })
+}
+
+$(".results-button").on("click", function (event) {
+    // displayGraph();
+    getOldGold();
+    // getGamerData();
+    // apiCall();
+    getNewGold();
+    // dataForDisplay();
+    // combineGolds();
+    subtractMedals();
+});
+
 function dataForDisplay() {
     $.ajax({
         url: "/api/allgold",
@@ -266,14 +325,6 @@ function dataForDisplay() {
         console.log(arrPlayer);
     })
 }
-
-$(".results-button").on("click", function (event) {
-    // displayGraph();
-    // dataForDisplay();
-    // getGamerData();
-    // apiCall();
-    test2();
-});
 
 
 $(".enter-button").on("click", function (event) {

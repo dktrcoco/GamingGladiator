@@ -31,6 +31,18 @@ module.exports = function (app) {
     })
   })
 
+  app.get("api/player1", function (req, res) {
+    db.Gamer.findOne({attributes: ['gamerName', 'medalsGold'], where: { gamerName: req.params.gamer}}).then(function (results) {
+      res.json(results);
+    })
+  })
+
+  app.get("/api/oldgold", function (req, res) {
+    db.Gamer.findAll({ attributes: ['medalsGold'] }).then(function (results) {
+      res.json(results);
+    })
+  })
+
   //route to pull one gamerName
   app.get("/api/gamername", function (req, res) {
     db.Gamer.findAll({ attributes: ['gamerName'] }).then(function (results) {
