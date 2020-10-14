@@ -197,6 +197,8 @@ $(".enter-button").on("click", function (event) {
     console.log("-----")
     console.log(medalsGold)
     // displayGraph();
+    var newDiv = $("<div>" + gamerNameUrl + "</div>");
+    $("#empty-div").append(newDiv);
 });
 
 //don't overburden one table
