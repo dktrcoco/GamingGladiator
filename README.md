@@ -22,7 +22,7 @@ Table of Contents
 
 AS a gamer who plays Overwatch, I want have one location for data display and in-game challenges
 
-SO I can quickly and easily compare my personal stats to friends and engage in challenges with other friends who play the game
+SO I can quickly and easily engage in challenges with other friends who play the game
 
 
 ## Games
@@ -62,6 +62,8 @@ If you have any questions that are not answered, please feel free to reach out t
 You can also reach us through GitHub directly via our accounts (listed above).
 
 ## Future
+
+As our code is structured currently, we will need to implement a limitation to the number of accounts that can be entered into the competition.
 
 Future Work: Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament,
 
