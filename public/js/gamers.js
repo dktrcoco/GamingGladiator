@@ -210,33 +210,38 @@ function testing() {
     console.log(data);
 }
 
-// function displayGraph() {
-//     var playerArray = ["player1", "player2", "player3", "player4"];
-//     var goldArray = [5, 4, 3, 2];
+async function displayGraph() {
+    let displayGoldArr = await subtractMedals();
+    let displayNameArr = await getGamerData();
+    console.log("final gold: " + displayGoldArr);
+    console.log("final name: " + displayNameArr);
 
-//     var barData = {
-//         labels: playerArray,
-//         datasets: [
-//             {
-//                 fillColor: "#FFFFFF",
-//                 strokeColor: "#000000",
-//                 data: goldArray
-//             }
-//         ]
-//     }
-//     // get bar chart canvas
-//     var overData = document.getElementById("overData").getContext("2d");
-//     // draw bar chart
-//     new Chart(overData).Bar(barData);
-// }
+    // var playerArray = ["player1", "player2", "player3", "player4"];
+    // var goldArray = [5, 4, 3, 2];
 
-// async function combineGolds() {
-//     // let oldGold = await getOldGold();
-//     // let newGold = await getNewGold();
-//     // let newGold = [];
-//     console.log(newGold);
+    var barData = {
+        labels: displayNameArr,
+        datasets: [
+            {
+                fillColor: "#FFFFFF",
+                strokeColor: "#000000",
+                data: displayGoldArr
+            }
+        ]
+    }
+    // get bar chart canvas
+    var overData = document.getElementById("overData").getContext("2d");
+    // draw bar chart
+    new Chart(overData).Bar(barData);
+}
 
-// }
+async function combineGolds() {
+    // let oldGold = await getOldGold();
+    // let newGold = await getNewGold();
+    // let newGold = [];
+    console.log(newGold);
+
+}
 
 async function subtractMedals() {
     let oldMedalCount = await getOldGold();
@@ -249,6 +254,7 @@ async function subtractMedals() {
         medalCountDifference.push(newMedalCount[i] - oldMedalCount[i])
     }
     console.log("difference: " + medalCountDifference);
+    return medalCountDifference;
 }
 
 async function getOldGold() {
@@ -288,6 +294,7 @@ $(".results-button").on("click", function (event) {
     // dataForDisplay();
     // combineGolds();
     subtractMedals();
+    displayGraph();
 });
 
 function dataForDisplay() {
