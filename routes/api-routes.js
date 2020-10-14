@@ -19,16 +19,29 @@ module.exports = function (app) {
     });
   });
 
+  // app.put("/api/edit", function (req, res) {
+  //   db.Gamer.FindAll({}).then(function (results) {
+  //     res.json(results);
+  //   });
+  // });
+
   app.get("/api/allgold", function (req, res) {
-    db.Gamer.findAll({attributes: ['gamerName', 'medalsGold']}).then(function(results) {
+    db.Gamer.findAll({ attributes: ['gamerName', 'medalsGold'] }).then(function (results) {
       res.json(results);
     })
   })
 
+  //route to pull one gamerName
+  app.get("/api/gamername", function (req, res) {
+    db.Gamer.findAll({ attributes: ['gamerName'] }).then(function (results) {
+      res.json(results);
+    });
+  });
+
   //trying to set this to pull medals gold based on gamertag
   //can pass this back to the client to compare gold medals so we can set previousgoldmedals to this
   app.get("/api/gold/:gamer", function (req, res) {
-    db.Gamer.findOne({attributes: ['gamerName', 'medalsGold'], where: {gamerName: req.params.gamer}}).then(function(results) {
+    db.Gamer.findOne({ attributes: ['gamerName', 'medalsGold'], where: { gamerName: req.params.gamer } }).then(function (results) {
       res.json(results);
     })
   })
