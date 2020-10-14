@@ -14,60 +14,32 @@
 
 <body>
     <header>
-        <h1>Olympians! Prepare Yourselves!!</h1>
+        <h1 class="header-1">Olympians! Prepare Yourselves!!</h1>
     </header>
     
     <div class="container1">
+
         
-        <div class="row">
-            <div id="enter-names" class="card">
-                <form class="username-gamertag">
-                    <div class="form-group">
-                      <label for="exampleUsername1"><h3 class="card-header"> Enter Competitors Here</h3></label>
-                      <div class="card-body">
-                        <input type="username" class="form-control" id="username-input" placeholder="Enter Username/Gamertag">
-                        <br>
-                        <button class="btn btn-outline-light btn-lg enter-button">Enter</button>
-                      </div>
-                    </div>
-                </form>
+        
+        <div class="container3">
+            <h2>Enter Competitor Username Below</h2>
+
+            <div class="input-group">
+                <input type="username" class="form-control" id="username-input" placeholder="Enter Username/Gamertag"><span class="btn btn-outline-dark btn-md enter-button">Enter</span>
             </div>
         </div>
-
+        
         <br>
-
-        <div class="row">
-            <div id="choose-battle-mode" class="card">
-                <h3 class="card-header">Choose Battle Mode</h3>
-                <div class="card-body">
-                    <div class="text-center">
-                        <button class="btn btn-outline-light btn-lg high-score-button">
-                            High Score Hero</button>
-                        <button class="btn btn-outline-light btn-lg kotk-button">
-                            King of the Kills</button>
-                        <button class="btn btn-outline-light btn-lg kd-button">
-                            K/D Clash</button>
-                    </div>
-                </div>
-            </div>     
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div id="choose-trial-length" class="card">
-                <h3 class="card-header">Choose Trial Length</h3>
-                <div class="card-body">
-                    <div class="text-center">
-                        <button class="btn btn-outline-light btn-lg one-round-button">1 match</button>
-                        <button class="btn btn-outline-light btn-lg three-round-button">3 matches</button>
-                        <button class="btn btn-outline-light btn-lg five-round-button">5 matches</button>
-                    </div>
-                </div>
-            </div>   
+        
+        <div class="container4">
+            <h2>List of Current Competitors</h2>
+            <hr>
+            <div id="empty-div"></div>
         </div>
     </div>
-    
+
+    <br>
+
     <div class="buttonHolder">
         <a class="btn btn-outline-dark btn-lg" id="rules-button" href="./welcome.html" role="button">Back to Rules</a>
         <a class="btn btn-outline-dark btn-lg" id="end-button" href="./results.html" role="button">Results</a>
