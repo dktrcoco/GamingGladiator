@@ -138,7 +138,19 @@ $(".enter-button").on("click", function (event) {
     pullMedalData();
     console.log("-----")
     console.log(medalsGold)
-    // displayGraph();
     var newDiv = $("<div>" + gamerNameUrl + "</div>");
-    $("#empty-div").append(newDiv);
+    if($("#empty-div").children().length >= 0 && $("#empty-div").children()[0]){
+        let isUnique = true;
+        for (var i = 0; i < $("#empty-div").children().length; i++) {
+            if (gamerNameUrl === $("#empty-div").children()[i].innerHTML) {
+                alert("Gamer tag already exists");
+                isUnique = false;
+                break;
+            }
+            else continue;
+        
+        }
+        if (isUnique) $("#empty-div").append(newDiv);
+}
+    else $("#empty-div").append(newDiv);
 });
