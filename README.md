@@ -2,7 +2,7 @@
 
 Video of App in Action: 
 
-Link of Deployed App: https://gaminggladiator.herokuapp.com
+Link of Deployed App: https://gaminggladiator.herokuapp.com/welcome.html
 
 Link to Heroku Repo: https://dashboard.heroku.com/apps/gaminggladiator
 
@@ -65,6 +65,16 @@ You can also reach us through GitHub directly via our accounts (listed above).
 
 As our code is structured currently, we will need to implement a limitation to the number of accounts that can be entered into the competition.
 
-Future Work: Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament,
+Other areas of improvement include:
 
-Apex Legends, Counter-Strike Go
+    *expanding the competition to include other stats besides gold medals
+    
+    *adding a log-in feature
+
+    *allowing the user to select the type of competition (medals, kills, etc)
+
+    *adding in-game sound effects
+
+    *adding a timed functionality to indicate the end of the competition
+
+    *expanding the app to include other games, such as Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament, Apex Legends, Counter-Strike Go

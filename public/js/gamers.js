@@ -130,14 +130,9 @@ $(".results-button").on("click", function (event) {
 
 $(".enter-button").on("click", function (event) {
     event.preventDefault();
-    console.log("new: " + gamerName.val());
     var gamerNameUrl = gamerName.val();
-    console.log("new2: " + gamerNameUrl);
     var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
-    console.log(gamerNameUrl2);
     pullMedalData();
-    console.log("-----")
-    console.log(medalsGold)
     // displayGraph();
     var newDiv = $("<div>" + gamerNameUrl + "</div>");
     $("#empty-div").append(newDiv);
