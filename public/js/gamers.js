@@ -133,7 +133,7 @@ function resetCompetition() {
         method: "DELETE",
         url: "/api/reset"
     }).then(function (results) {
-        alert("Competition Reset!");
+        alert("Competition Reset!!");
     })
 }
 
