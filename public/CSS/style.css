@@ -56,7 +56,7 @@ h2 {
 h3 {
     padding: 1%;
     margin: auto;
-    font-size: 30px;
+    font-size: 150%;
     text-decoration: underline;
     color: #4A4C4E;
 }
@@ -168,16 +168,18 @@ p {
 }
 
 #empty-div {
-    /*border: 3px solid #4A4C4E;*/
+    border: 3px solid #4A4C4E;
     border-radius: 25px;
-    background-color: #FFFFFF;
+    background-color: #fa9c1d;
     color: #4A4C4E;
-    width: 20%;
-    max-width: 10%;
+    width: 70%;
+    max-width: 60%;
     padding: 1%;
     margin: auto;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
+    height: 100%;
 }
 
 .buttonHolder {
