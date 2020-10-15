@@ -1,4 +1,4 @@
-# GamingGladiator
+# Gaming Gladiator: Overwatch Olympics
 
 Video of App in Action: 
 
