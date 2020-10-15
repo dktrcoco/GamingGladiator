@@ -24,6 +24,7 @@ Table of Contents
 * [Future Work](#future)
 * [Retrospective](#retrospective)
 
+
 ## Story
 
 AS a gamer who plays Overwatch, I want have to be able to have in-game challenges
@@ -75,10 +76,10 @@ Fig. 4: Competition Results
 ## Gifs
 
 GIF 1: Navigating Pre-Competition
-![Pre-Competition_Demo](./public/assets/gif/pre.gif)
+![Pre-Competition_Demo](./public/assets/gif/pre.gif.gif)
 
 GIF 2: Navigating to Results
-![Post-Competition_Demo](./public/assets/gif/post.gif)
+![Post-Competition_Demo](./public/assets/gif/post.gif.gif)
 
 ## Install
 
