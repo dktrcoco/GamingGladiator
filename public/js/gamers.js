@@ -130,10 +130,27 @@ $(".results-button").on("click", function (event) {
 
 $(".enter-button").on("click", function (event) {
     event.preventDefault();
+    console.log("new: " + gamerName.val());
     var gamerNameUrl = gamerName.val();
+    console.log("new2: " + gamerNameUrl);
     var gamerNameUrl2 = gamerNameUrl.replace("#", "-");
+    console.log(gamerNameUrl2);
     pullMedalData();
-    // displayGraph();
+    console.log("-----")
+    console.log(medalsGold)
     var newDiv = $("<div>" + gamerNameUrl + "</div>");
-    $("#empty-div").append(newDiv);
+    if ($("#empty-div").children().length >= 0 && $("#empty-div").children()[0]) {
+        let isUnique = true;
+        for (var i = 0; i < $("#empty-div").children().length; i++) {
+            if (gamerNameUrl === $("#empty-div").children()[i].innerHTML) {
+                alert("Gamer tag already exists");
+                isUnique = false;
+                break;
+            }
+            else continue;
+
+        }
+        if (isUnique) $("#empty-div").append(newDiv);
+    }
+    else $("#empty-div").append(newDiv);
 });
