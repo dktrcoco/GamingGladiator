@@ -1,3 +1,5 @@
+// const { ConnectionError } = require("sequelize/types");
+
 //global so we can use it elsewhere
 var medalsGold;
 var medalsSilver;
@@ -124,6 +126,17 @@ async function getOldGold() {
     return oldGold
 }
 
+//will empty table in db, allowing for a new competition to be set up
+function resetCompetition() {
+
+    $.ajax({
+        method: "DELETE",
+        url: "/api/reset"
+    }).then(function (results) {
+        alert("test");
+    })
+}
+
 $(".results-button").on("click", function (event) {
     displayGraph();
 });
@@ -149,3 +162,7 @@ $(".enter-button").on("click", function (event) {
     }
     else $("#empty-div").append(newDiv);
 });
+
+$(".reset-button").on("click", function(event) {
+    resetCompetition();
+})
