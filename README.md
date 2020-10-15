@@ -19,7 +19,6 @@ Table of Contents
 * [Install](#install)
 * [Instructions](#instructions)
 * [Contribution](#contribution)
-* [Testing](#testing)
 * [Authors](#authors)
 * [Questions](#questions)
 * [Future Work](#future)
@@ -50,6 +49,9 @@ WHEN I navigate to see the results of the competition and click to see results
 
 THEN a bar graph of the number of Gold Medals earned during the duration of the competition are displayed
 
+WHEN I want to end the competition
+
+THEN I can push a 'Reset Competition' button
 
 ## Games
 
@@ -94,21 +96,19 @@ If you want to check out the code, you will need to clone the repo and run 'npm 
 
 4. Repeat with friends with whom you will compete.
 
-5. PLAY OVERWATCH!
+5. PLAY OVERWATCH! (This is the best step)
 
 6. Open the app and navigate to Results (button inside Coliseum).
 
 7. Click 'Click for Results!' to generate Results (NOTE: Generating results may take a short amount of time. Do not click Results button more than once.).
+
+8. To end the competition and begin a new one, click 'Reset Competition'. Now you can add players as you did in steps 3 and 4.
 
 ## Contribution
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-## Testing
-
-
 
 ## Authors
 
@@ -133,6 +133,8 @@ As our code is structured currently, we will need to implement a limitation to t
 Other areas of improvement include:
 
     *expanding the competition to include other stats besides gold medals
+
+    *adding additional and/or more complex graphs of player stats
     
     *adding a log-in feature
 
@@ -142,7 +144,9 @@ Other areas of improvement include:
 
     *adding a timed functionality to indicate the end of the competition
 
-    *maintaining a list of the current competitors
+    *maintaining a list of the current competitors and have it remain between sessions
+
+    *restricting who can add gamers/reset competition based on who is currently in the competition
 
     *expanding the app to include other games, such as Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament, Apex Legends, Counter-Strike Go
 
