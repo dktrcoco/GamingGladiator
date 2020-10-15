@@ -172,8 +172,8 @@ p {
     border-radius: 25px;
     background-color: #fa9c1d;
     color: #4A4C4E;
-    width: 70%;
-    max-width: 60%;
+    width: fit-content;
+    max-width: 80%;
     padding: 1%;
     margin: auto;
     margin-left: auto;
