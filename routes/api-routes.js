@@ -19,20 +19,16 @@ module.exports = function (app) {
     });
   });
 
+  //keeping this commented route in case future work incorporates a PUT request
   // app.put("/api/edit", function (req, res) {
   //   db.Gamer.FindAll({}).then(function (results) {
   //     res.json(results);
   //   });
   // });
 
+  //
   app.get("/api/allgold", function (req, res) {
     db.Gamer.findAll({ attributes: ['gamerName', 'medalsGold'] }).then(function (results) {
-      res.json(results);
-    })
-  })
-
-  app.get("api/player1", function (req, res) {
-    db.Gamer.findOne({attributes: ['gamerName', 'medalsGold'], where: { gamerName: req.params.gamer}}).then(function (results) {
       res.json(results);
     })
   })
@@ -50,8 +46,9 @@ module.exports = function (app) {
     });
   });
 
+  //route to empty table, allowing for a new competition
   app.delete("/api/reset", function (req, res) {
-    db.Gamer.destroy({ truncate: true, cascade: false}).then(function(results) {
+    db.Gamer.destroy({ truncate: true, cascade: false }).then(function (results) {
       res.json(results);
     })
   })
@@ -65,7 +62,6 @@ module.exports = function (app) {
   })
 
   //post for adding new gamertag and relevant info to the database
-  //
   app.post("/api/new", function (req, res) {
     console.log("New Player: ");
     console.log(req.body);
