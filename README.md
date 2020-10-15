@@ -77,4 +77,6 @@ Other areas of improvement include:
 
     *adding a timed functionality to indicate the end of the competition
 
+    *maintaining a list of the current competitors
+
     *expanding the app to include other games, such as Fortnite, Call of Duty: Modern Warefare, Grand Theft Auto Tournament, Apex Legends, Counter-Strike Go
