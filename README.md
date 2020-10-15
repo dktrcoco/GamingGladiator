@@ -155,7 +155,7 @@ Other areas of improvement include:
 
 * This project was simultaneously very fun and very frustrating. As a member of the back-end team, I struggled frequently to properly utilize Sequelize and creating api routes. When everything finally came together, I had a feeling of great satisfaction. The finished (in terms of this assignment) product is something I can see myself using. The team was a joy to work with. Everyone had good ideas and were enthusiastic about the project. -Chris
 
-* 
+* I had a lot of fun with this project, despite not being able to utilize all the ideas we had. I worked on the front-end with Christian where we designed the layout and the bar graph displayed on the results page. Chart JS was an unfamiliar package to us but ended up doing everything we needed it to- aside from some scaling issues we ran into. My team was great to work with, we all connected on our love of video games almost right away, so working on this project was only natural for us. I would love to work with this team again in the future. - Jeffrey
 
 
 * 
