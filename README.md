@@ -161,4 +161,5 @@ Other areas of improvement include:
 * 
 
 
-* 
+* Cards on the table, I was very nervous going into the 2nd project. That was quickly forgotten when I found myself in the company of fellow gamers, each with our own strengths & weaknesses, as each of our individual ideas could compliment each other and made it easier to nail down a website/app we knew ideas that other gamers would enjoy. As a member of the front-end team, I worked alongside Jeffrey who I quickly came to trust with his work load because of his work ethic so I could focus on my own workload, and I had complete faith in the back-end team because they were completely on top of their side of the work. Working on this project, while I had my own share of headaches and stress, felt very rewarding both in the end and as I worked on it, which I attribute to working on an idea I really like and because my team was not only very cohesive, but supportive and open-minded to each idea brought forth. I was nervous because of my experiences during the 1st project, but because of my experience here, that is only replaced with confidence in my teammates and in myself. This project is a victory in my book. - Christian - 
+
