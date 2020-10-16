@@ -155,9 +155,7 @@ Other areas of improvement include:
 * This project was simultaneously very fun and very frustrating. As a member of the back-end team, I struggled frequently to properly utilize Sequelize and creating api routes. When everything finally came together, I had a feeling of great satisfaction. The finished (in terms of this assignment) product is something I can see myself using. The team was a joy to work with. Everyone had good ideas and were enthusiastic about the project. -Chris
 
 * 
-
-
-* 
+* This project was definitley a test of our skills.  This project kept me awake at night and also had me feeling relived after we got a code to finally work.  This team was so much to work with and brainstorm together.  I've learned so much from these guys.
 
 
 * 
